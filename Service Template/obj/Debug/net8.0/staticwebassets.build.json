@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XJW0ODRK+qcheIC3vMqEbpf7qIhw3qoN/cnHp1WnoYg=",
+  "Source": "Service Template",
+  "BasePath": "_content/Service Template",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
