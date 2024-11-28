@@ -10,8 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Dependency injection
+// Services
+builder.Services.AddAutoMapper(typeof(ProjectMappingProfile));  // Register AutoMapper profile
+
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IBlobRepository>(provider => 
+    new BlobRepository(builder.Configuration.GetConnectionString("AzureBlobStorage")));
 
 // CORS
 builder.Services.AddCors(options =>

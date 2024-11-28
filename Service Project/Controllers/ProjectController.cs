@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Service_Project.DTOs;
 using Service_Project.Models;
 using Service_Project.Repositories;
 
@@ -11,87 +13,71 @@ namespace Service_Project.Controllers
     {
         
         private readonly IProjectRepository _projectRepository;
+        private readonly IBlobRepository _blobRepository;
+        
+        private readonly IMapper _mapper;
 
-        public ProjectController(IProjectRepository projectRepository)
+        public ProjectController(IProjectRepository projectRepository, IBlobRepository blobRepository, IMapper mapper)
         {
             _projectRepository = projectRepository;
+            _blobRepository = blobRepository;
+            
+            _mapper = mapper;
         }
         
         // GET: api/<ProjectController>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Project>>> GetAllProjects()
         {
-            try
-            {
-                var projects = await _projectRepository.GetAllProjectsAsync();
-                return Ok(projects);
-            }
-            catch (NotImplementedException)
-            {
-                return StatusCode(501, "Method not implemented.");
-            }
+            throw new NotImplementedException();
         }
 
         // GET api/<ProjectController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Project>> GetProjectById(int id)
+        public async Task<ActionResult<Project>> GetProject(int id)
         {
-            try
-            {
-                var project = await _projectRepository.GetProjectByIdAsync(id);
-                if (project == null) return NotFound();
-                return Ok(project);
-            }
-            catch (NotImplementedException)
-            {
-                return StatusCode(501, "Method not implemented.");
-            }
+            throw new NotImplementedException();
         }
 
         // POST api/<ProjectController>
         [HttpPost]
-        public async Task<IActionResult> CreateProject([FromBody] Project project)
+        public async Task<IActionResult> CreateProject([FromBody] ProjectRequestDto projectDto)
         {
-            try
+            // Map the request DTO to the Project model
+            var project = _mapper.Map<Project>(projectDto); 
+            
+            // Add the project to the database (example using your repository)
+            // await _projectRepository.AddProjectAsync(project);
+            project.BlobContainerName = "test";
+            
+            
+            // Create the container in Blob Storage and set up the folder structure
+            var createContainerResult = await _blobRepository.CreateContainerAsync(project.BlobContainerName);
+
+            if (createContainerResult.IsFailed)
             {
-                await _projectRepository.AddProjectAsync(project);
-                return CreatedAtAction(nameof(GetProjectById), new { id = project.Id }, project);
+                // Handle the error and return an appropriate response
+                var errorMessages = string.Join(", ", createContainerResult.Errors.Select(e => e.Message));
+                return BadRequest($"Error creating container: {errorMessages}");
             }
-            catch (NotImplementedException)
-            {
-                return StatusCode(501, "Method not implemented.");
-            }
+            
+            // Return success response
+            var responseDto = _mapper.Map<ProjectResponseDto>(project);
+            return Ok(responseDto);
         }
 
         // PUT api/<ProjectController>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProject(int id, [FromBody] Project project)
         {
-            try
-            {
-                if (id != project.Id) return BadRequest("ID mismatch");
-                await _projectRepository.UpdateProjectAsync(project);
-                return NoContent();
-            }
-            catch (NotImplementedException)
-            {
-                return StatusCode(501, "Method not implemented.");
-            }
+            throw new NotImplementedException();
         }
 
         // DELETE api/<ProjectController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(int id)
         {
-            try
-            {
-                await _projectRepository.DeleteProjectAsync(id);
-                return NoContent();
-            }
-            catch (NotImplementedException)
-            {
-                return StatusCode(501, "Method not implemented.");
-            }
+            throw new NotImplementedException();
         }
     }
 }
