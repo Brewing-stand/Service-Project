@@ -2465,7 +2465,7 @@
         "dependencies": {
           "Microsoft.Build": "17.10.4",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.6",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "9.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "compile": {
