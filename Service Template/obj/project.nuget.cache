@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W0ocaeIb0dRDi7OIJjo+0CziOC7sSui01yGNEtHLWs3nrqnKHTyTpPx8bdlZF+ctraYLR/gNpN00HFy+y3CPcQ==",
+  "dgSpecHash": "iSQIECik/8G6/HBprphrlslJ3lAqTtA89giB+c6wv967pWEaa+V2F8O544tSi9NYMjn5zBN3/nmIrkLn624FnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\Service Template\\Service Template.csproj",
+  "projectFilePath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Template\\Service Template.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bramv\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -2424,7 +2424,7 @@
           }
         }
       },
-      "Service Template/1.0.0": {
+      "Service Project/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -2433,10 +2433,10 @@
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "compile": {
-          "bin/placeholder/Service Template.dll": {}
+          "bin/placeholder/Service Project.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Service Template.dll": {}
+          "bin/placeholder/Service Project.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -6964,10 +6964,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Service Template/1.0.0": {
+    "Service Project/1.0.0": {
       "type": "project",
-      "path": "../Service Template/Service Template.csproj",
-      "msbuildProject": "../Service Template/Service Template.csproj"
+      "path": "../Service Project/Service Project.csproj",
+      "msbuildProject": "../Service Project/Service Project.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6976,7 +6976,7 @@
       "NUnit >= 3.14.0",
       "NUnit.Analyzers >= 3.9.0",
       "NUnit3TestAdapter >= 4.5.0",
-      "Service Template >= 1.0.0",
+      "Service Project >= 1.0.0",
       "coverlet.collector >= 6.0.0"
     ]
   },
@@ -6986,11 +6986,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\UnitTests\\UnitTests.csproj",
+      "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
       "packagesPath": "C:\\Users\\bramv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bramv\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7008,8 +7008,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\Service Template\\Service Template.csproj": {
-              "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\Service Template\\Service Template.csproj"
+            "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj": {
+              "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj"
             }
           }
         }

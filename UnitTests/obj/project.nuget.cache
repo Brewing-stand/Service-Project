@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bk1Bmotrvs9YIe5jx+rSki/L5PF0JEb4L6iCSdNy0kEKFPUFcfK4N4ZZaUrBIwGsAj+o/ZdcQAuqxe13YlvZWw==",
+  "dgSpecHash": "Q/wI8BzNrg08UJsabjDR30Beyfu8CktEvoQ0P2L/llXSPhuk3rCYgo/rVHwtkLAf5goSzV57x3yJYByKwj9W0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service Template\\UnitTests\\UnitTests.csproj",
+  "projectFilePath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bramv\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
