@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GVtRzZlha6eDVshJJbwyvHu/CU35Y9tA6ga3ZfU/C/ItusQdcfdQnA6CbfT6RgCN5D+rPygq9ZvM36UMvO6QFg==",
+  "dgSpecHash": "e5O+7I/brBhGh8M18yJVBKYV8INb9sD5bdrWjMZznVaEO5C3hNE81DGlYoFZ3OiIKj+hP67/5SacsgLzl0JeKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\bramv\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\azure.storage.blobs\\12.23.0\\azure.storage.blobs.12.23.0.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\azure.storage.common\\12.22.0\\azure.storage.common.12.22.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -110,6 +113,7 @@
     "C:\\Users\\bramv\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\system.clientmodel\\1.1.0\\system.clientmodel.1.1.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.composition\\7.0.0\\system.composition.7.0.0.nupkg.sha512",
@@ -120,9 +124,13 @@
     "C:\\Users\\bramv\\.nuget\\packages\\system.composition.typedparts\\7.0.0\\system.composition.typedparts.7.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.formats.asn1\\9.0.0-rc.2.24473.5\\system.formats.asn1.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\system.io.hashing\\6.0.0\\system.io.hashing.6.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.io.pipelines\\9.0.0-rc.2.24473.5\\system.io.pipelines.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\system.memory.data\\6.0.0\\system.memory.data.6.0.0.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.reflection.metadata\\8.0.0\\system.reflection.metadata.8.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.reflection.metadataloadcontext\\8.0.0\\system.reflection.metadataloadcontext.8.0.0.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
@@ -132,7 +140,8 @@
     "C:\\Users\\bramv\\.nuget\\packages\\system.text.encodings.web\\9.0.0-rc.2.24473.5\\system.text.encodings.web.9.0.0-rc.2.24473.5.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.text.json\\9.0.0-rc.2.24473.5\\system.text.json.9.0.0-rc.2.24473.5.nupkg.sha512",
     "C:\\Users\\bramv\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
-    "C:\\Users\\bramv\\.nuget\\packages\\system.threading.tasks.dataflow\\8.0.0\\system.threading.tasks.dataflow.8.0.0.nupkg.sha512"
+    "C:\\Users\\bramv\\.nuget\\packages\\system.threading.tasks.dataflow\\8.0.0\\system.threading.tasks.dataflow.8.0.0.nupkg.sha512",
+    "C:\\Users\\bramv\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
