@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_28_11_2024_15_08_[Changes]1" date="1732802899500" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2024_15_08_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 28/11/2024 15:08 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="UnitTests/obj/Debug/net8.0/UnitTests.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="UnitTests/obj/Debug/net8.0/UnitTests.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2024_15_08_[Changes]1/UnitTests.csproj.AssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfoInputs.cache" />
+    <option name="AFTER_PATH" value="UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfoInputs.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2024_15_08_[Changes]1/UnitTests.AssemblyInfoInputs.cache" />
+  </binary>
+</changelist>
