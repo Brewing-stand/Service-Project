@@ -1,3 +1,6 @@
+using System.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Service_Project.Models;
 using Service_Project.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(ProjectMappingProfile));  // Register AutoMapper profile
 
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+
+// Set Database connection strings
+builder.Services.AddDbContext<BrewingStandDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("CosmosDbCluster")));
+
 builder.Services.AddScoped<IBlobRepository>(provider => 
     new BlobRepository(builder.Configuration.GetConnectionString("AzureBlobStorage")));
 

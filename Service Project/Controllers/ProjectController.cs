@@ -46,20 +46,26 @@ namespace Service_Project.Controllers
             // Map the request DTO to the Project model
             var project = _mapper.Map<Project>(projectDto); 
             
-            // Add the project to the database (example using your repository)
-            // await _projectRepository.AddProjectAsync(project);
-            project.BlobContainerName = "test";
+            // Add the project to the database (using your repository)
+            var result = await _projectRepository.AddProjectAsync(project);
+
+            if (result.IsFailed)
+            {
+                // Return a BadRequest response with the error message from FluentResults
+                return BadRequest(result.Errors.First().Message);
+            }
             
-            
+            /*
             // Create the container in Blob Storage and set up the folder structure
             var createContainerResult = await _blobRepository.CreateContainerAsync(project.BlobContainerName);
 
             if (createContainerResult.IsFailed)
-            {
-                // Handle the error and return an appropriate response
-                var errorMessages = string.Join(", ", createContainerResult.Errors.Select(e => e.Message));
-                return BadRequest($"Error creating container: {errorMessages}");
-            }
+                {
+                    // Handle the error and return an appropriate response
+                    var errorMessages = string.Join(", ", createContainerResult.Errors.Select(e => e.Message));
+                    return BadRequest($"Error creating container: {errorMessages}");
+                }
+            */
             
             // Return success response
             var responseDto = _mapper.Map<ProjectResponseDto>(project);
