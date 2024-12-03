@@ -5,7 +5,7 @@ namespace Service_Project.Repositories;
 
 public interface IProjectRepository
 {
-    Task<IEnumerable<Project>> GetAllProjectsAsync();
+    Task<Result<List<Project>>> GetAllProjectsByUserIdAsync(string? userId);
     Task<Result<Project>> GetProjectByIdAsync(Guid id);
     Task<Result> AddProjectAsync(Project project);
     Task<Result> UpdateProjectAsync(Project project);

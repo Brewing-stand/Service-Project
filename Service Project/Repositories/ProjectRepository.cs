@@ -13,7 +13,7 @@ public class ProjectRepository : IProjectRepository
     {
         _context = context;
     }
-    public Task<IEnumerable<Project>> GetAllProjectsAsync()
+    public Task<Result<List<Project>>> GetAllProjectsByUserIdAsync(string? userId)
     {
         throw new NotImplementedException();
     }
