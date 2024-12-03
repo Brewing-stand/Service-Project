@@ -1,14 +1,15 @@
 ﻿using FluentResults;
 using Microsoft.EntityFrameworkCore;
+using Service_Project.Context;
 using Service_Project.Models;
 
 namespace Service_Project.Repositories;
 
 public class ProjectRepository : IProjectRepository
 {
-    private readonly BrewingStandDbContext _context;
+    private readonly ProjectDbContext _context;
 
-    public ProjectRepository(BrewingStandDbContext context)
+    public ProjectRepository(ProjectDbContext context)
     {
         _context = context;
     }

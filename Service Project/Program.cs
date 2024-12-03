@@ -1,6 +1,6 @@
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Service_Project.Models;
+using Service_Project.Context;
 using Service_Project.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,17 +13,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Set Database connection strings
+builder.Services.AddDbContext<ProjectDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("CosmosDbCluster")));
+
+builder.Services.AddScoped<IBlobRepository>(provider => 
+    new BlobRepository(builder.Configuration.GetConnectionString("AzureBlobStorage")));
+
 // Services
 builder.Services.AddAutoMapper(typeof(ProjectMappingProfile));  // Register AutoMapper profile
 
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 
-// Set Database connection strings
-builder.Services.AddDbContext<BrewingStandDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("CosmosDbCluster")));
-
-builder.Services.AddScoped<IBlobRepository>(provider => 
-    new BlobRepository(builder.Configuration.GetConnectionString("AzureBlobStorage")));
 
 // CORS
 builder.Services.AddCors(options =>
