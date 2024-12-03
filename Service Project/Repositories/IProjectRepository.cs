@@ -9,5 +9,5 @@ public interface IProjectRepository
     Task<Result<Project>> GetProjectByIdAsync(Guid id);
     Task<Result> AddProjectAsync(Project project);
     Task UpdateProjectAsync(Project project);
-    Task DeleteProjectAsync(Guid id);
+    Task<Result> DeleteProjectAsync(Guid id);
 }

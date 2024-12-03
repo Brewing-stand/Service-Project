@@ -81,8 +81,25 @@ public class ProjectRepository : IProjectRepository
         throw new NotImplementedException();
     }
 
-    public Task DeleteProjectAsync(Guid id)
+    public async Task<Result> DeleteProjectAsync(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            // Find the project by ID
+            var project = await _context.Projects.FindAsync(id);
+
+            if (project == null)
+                return Result.Fail(new Error($"Project with id '{id}' not found."));
+
+            // Remove the project from the database
+            _context.Projects.Remove(project);
+            await _context.SaveChangesAsync();
+
+            return Result.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Result.Fail(new Error($"Error deleting project: {ex.Message}"));
+        }
     }
 }
