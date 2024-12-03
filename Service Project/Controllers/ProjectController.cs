@@ -134,9 +134,28 @@ namespace Service_Project.Controllers
 
         // DELETE api/<ProjectController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProject(int id)
+        public async Task<IActionResult> DeleteProject(Guid id)
         {
-            throw new NotImplementedException();
+            // First, attempt to delete the project from the database
+            var result = await _projectRepository.DeleteProjectAsync(id);
+
+            if (result.IsFailed)
+            {
+                // Return a BadRequest response if the project couldn't be deleted from the database
+                return BadRequest(result.Errors.First().Message);
+            }
+
+            // Next, attempt to delete the container from Azure Blob Storage
+            var deleteContainerResult = await _blobRepository.DeleteContainerAsync(id);
+
+            if (deleteContainerResult.IsFailed)
+            {
+                // Return a BadRequest response if the container couldn't be deleted
+                return BadRequest(deleteContainerResult.Errors.First().Message);
+            }
+
+            // Return success response if both project and container were deleted successfully
+            return Ok($"Project and container with id '{id}' were deleted successfully.");
         }
     }
 }

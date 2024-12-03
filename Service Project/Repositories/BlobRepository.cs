@@ -91,7 +91,22 @@ public class BlobRepository : IBlobRepository
 
     public async Task<Result> DeleteContainerAsync(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            // Check if the container exists
+            if (!await DoesContainerExistAsync(id))
+                return Result.Fail(new Error($"Container with id '{id}' does not exist."));
+
+            // Get the container client and delete the container
+            var containerClient = _blobServiceClient.GetBlobContainerClient(id.ToString());
+            await containerClient.DeleteIfExistsAsync();
+
+            return Result.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Result.Fail(new Error($"Error deleting container: {ex.Message}"));
+        }
     }
 
     private async Task<Result> SetupBrewFolderStructureAsync(Guid id)
