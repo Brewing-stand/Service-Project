@@ -55,9 +55,9 @@ namespace Service_Project.Controllers
                 return BadRequest(result.Errors.First().Message);
             }
             
-            /*
+            
             // Create the container in Blob Storage and set up the folder structure
-            var createContainerResult = await _blobRepository.CreateContainerAsync(project.BlobContainerName);
+            var createContainerResult = await _blobRepository.CreateContainerAsync(project.id);
 
             if (createContainerResult.IsFailed)
                 {
@@ -65,7 +65,7 @@ namespace Service_Project.Controllers
                     var errorMessages = string.Join(", ", createContainerResult.Errors.Select(e => e.Message));
                     return BadRequest($"Error creating container: {errorMessages}");
                 }
-            */
+            
             
             // Return success response
             var responseDto = _mapper.Map<ProjectResponseDto>(project);
