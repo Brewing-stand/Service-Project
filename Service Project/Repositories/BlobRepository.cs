@@ -12,20 +12,20 @@ public class BlobRepository : IBlobRepository
         _blobServiceClient = new BlobServiceClient(connectionString);
     }
 
-    public async Task<Result> CreateContainerAsync(string containerName)
+    public async Task<Result> CreateContainerAsync(Guid id)
     {
         try
         {
             // Check if the container already exists
-            if (await DoesContainerExistAsync(containerName))
-                return Result.Fail(new Error($"Container with name '{containerName}' already exists."));
+            if (await DoesContainerExistAsync(id))
+                return Result.Fail(new Error($"Container with name '{id}' already exists."));
 
             // Create the container if it doesn't exist
-            var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            var containerClient = _blobServiceClient.GetBlobContainerClient(id.ToString());
             await containerClient.CreateIfNotExistsAsync();
 
             // Set up the container structure
-            var structureResult = await SetupBrewFolderStructureAsync(containerName);
+            var structureResult = await SetupBrewFolderStructureAsync(id);
             if (structureResult.IsFailed) return Result.Fail(structureResult.Errors);
 
             return Result.Ok();
@@ -36,16 +36,16 @@ public class BlobRepository : IBlobRepository
         }
     }
 
-    public async Task<Result> DeleteContainerAsync(string containerName)
+    public async Task<Result> DeleteContainerAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    private async Task<Result> SetupBrewFolderStructureAsync(string containerName)
+    private async Task<Result> SetupBrewFolderStructureAsync(Guid id)
     {
         try
         {
-            var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            var containerClient = _blobServiceClient.GetBlobContainerClient(id.ToString());
 
             // Upload the HEAD file to point to refs/heads/main
             var headBlobClient = containerClient.GetBlobClient("HEAD");
@@ -63,9 +63,9 @@ public class BlobRepository : IBlobRepository
         }
     }
 
-    private async Task<bool> DoesContainerExistAsync(string containerName)
+    private async Task<bool> DoesContainerExistAsync(Guid id)
     {
-        var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+        var containerClient = _blobServiceClient.GetBlobContainerClient(id.ToString());
         return await containerClient.ExistsAsync();
     }
 }

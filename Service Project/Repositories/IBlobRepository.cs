@@ -4,6 +4,6 @@ namespace Service_Project.Repositories;
 
 public interface IBlobRepository
 {
-    Task<Result> CreateContainerAsync(string containerName);
-    Task<Result> DeleteContainerAsync(string containerName);
+    Task<Result> CreateContainerAsync(Guid id);
+    Task<Result> DeleteContainerAsync(Guid id);
 }
