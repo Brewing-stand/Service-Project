@@ -14,42 +14,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd5c6254-a38f-4965-87f6-715962e42f92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2024_15_08__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2024_15_08__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service Project/DTOs/ProjectRequestDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service Project/DTOs/ProjectResponseDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service Project/Mappings/ProjectMappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service Project/Repositories/BlobRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service Project/Repositories/IBlobRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Service Template/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Project/Controllers/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service Project/Controllers/ProjectController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Project/Models/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service Project/Models/Project.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Project/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service Project/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Project/Service Project.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Service Project/Service Project.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Project/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Service Project/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Template/obj/Service Template.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Template/obj/Service Template.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Template/obj/Service Template.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Template/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Template/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service Template/obj/rider.project.model.nuget.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/net8.0/UnitTests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/UnitTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/UnitTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="fd5c6254-a38f-4965-87f6-715962e42f92" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Feature/CreateProject-in-blob" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
@@ -60,6 +36,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="Feature/ConnectClusteredDatabase" />
+                    <option name="lastUsedInstant" value="1732808776" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="Feature/CreateProject-in-blob" />
                     <option name="lastUsedInstant" value="1732803073" />
@@ -85,6 +65,18 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/bramv/OneDrive/Documenten/fontys/Semester 6 (advanced software)/Personal code/back-end/Service-Project/Service Project/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bramv/OneDrive/Documenten/fontys/Semester 6 (advanced software)/Personal code/back-end/Service-Project/Service Project/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bramv/OneDrive/Documenten/fontys/Semester 6 (advanced software)/Personal code/back-end/Service-Project/Service Project/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bramv/OneDrive/Documenten/fontys/Semester 6 (advanced software)/Personal code/back-end/Service-Project/UnitTests/obj/Debug/net8.0/UnitTests.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bramv/OneDrive/Documenten/fontys/Semester 6 (advanced software)/Personal code/back-end/Service-Project/UnitTests/obj/UnitTests.csproj.nuget.dgspec.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bramv/OneDrive/Documenten/fontys/Semester 6 (advanced software)/Personal code/back-end/Service-Project/UnitTests/obj/project.assets.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -102,7 +94,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.Service Project: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Feature/CreateProject-in-blob",
+    "git-widget-placeholder": "Feature/ConnectClusteredDatabase",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -201,6 +193,15 @@
       <updated>1732800161647</updated>
       <workItem from="1732800166245" duration="601000" />
     </task>
+    <task id="LOCAL-00001" summary="Added BlobRepository.cs with add container function to create basic blob container for porjects">
+      <option name="closed" value="true" />
+      <created>1732808740220</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732808740220</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,5 +211,7 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added BlobRepository.cs with add container function to create basic blob container for porjects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added BlobRepository.cs with add container function to create basic blob container for porjects" />
   </component>
 </project>
