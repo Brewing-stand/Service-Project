@@ -11,5 +11,8 @@ public class ProjectMappingProfile : Profile
 
         // Mapping from ProjectRequestDto to Project
         CreateMap<ProjectRequestDto, Project>();
+        
+        // Mapping from Project to ProjectContentResponseDto
+        CreateMap<Project, ProjectContentResponseDto>();
     }
 }

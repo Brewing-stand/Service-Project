@@ -18,9 +18,27 @@ public class ProjectRepository : IProjectRepository
         throw new NotImplementedException();
     }
 
-    public Task<Project> GetProjectByIdAsync(int id)
+    public async Task<Result<Project>> GetProjectByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            // Attempt to find the project by ID
+            var project = await _context.Projects.FirstOrDefaultAsync(p => p.id == id);
+
+            if (project == null)
+            {
+                // Return a failure result if the project is not found
+                return Result.Fail(new Error($"Project with ID {id} not found."));
+            }
+
+            // Return success with the project
+            return Result.Ok(project);
+        }
+        catch (Exception ex)
+        {
+            // Return a failure result with the exception message
+            return Result.Fail(new Error($"An error occurred while retrieving the project: {ex.Message}"));
+        }
     }
 
     public async Task<Result> AddProjectAsync(Project project)
@@ -63,7 +81,7 @@ public class ProjectRepository : IProjectRepository
         throw new NotImplementedException();
     }
 
-    public Task DeleteProjectAsync(int id)
+    public Task DeleteProjectAsync(Guid id)
     {
         throw new NotImplementedException();
     }

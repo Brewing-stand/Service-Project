@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +35,62 @@ namespace Service_Project.Controllers
 
         // GET api/<ProjectController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Project>> GetProject(int id)
+        public async Task<ActionResult<Project>> GetProject(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _projectRepository.GetProjectByIdAsync(id);
+
+            if (result.IsFailed)
+            {
+                // Return a 404 Not Found response if the project doesn't exist
+                return NotFound(result.Errors.FirstOrDefault()?.Message);
+            }
+            
+            // Transform the project entity to ProjectResponseDto
+            var project = result.Value; // The actual project entity
+            var responseDto = _mapper.Map<ProjectResponseDto>(project);
+
+            // Return the project as a 200 OK response
+            return Ok(responseDto);
+        }
+        
+        // GET api/<ProjectController>/5/content
+        [HttpGet("{id}/content")]
+        public async Task<ActionResult> GetProjectContent(Guid id)
+        {
+            var projectResult = await _projectRepository.GetProjectByIdAsync(id);
+
+            if (projectResult.IsFailed)
+            {
+                // Return a 404 Not Found response if the project doesn't exist
+                return NotFound(projectResult.Errors.FirstOrDefault()?.Message);
+            }
+    
+            // If project is found, fetch the content from blob storage
+            var blobResult = await _blobRepository.GetContainerContent(id);
+
+            if (blobResult.IsFailed)
+            {
+                // Return BadRequest if the blob storage content fetch failed
+                return BadRequest(blobResult.Errors.First().Message);
+            }
+            
+            if (projectResult.Value == null)
+            {
+                return BadRequest("Project data is not available.");
+            }
+
+            if (blobResult.Value == null)
+            {
+                return BadRequest("Failed to retrieve blob content.");
+            }
+    
+            // Map the project and content into the response DTO
+            var projectDto = _mapper.Map<ProjectContentResponseDto>(projectResult.Value);
+
+            // Add the Dictionary (blob content) to the DTO
+            projectDto.Dictionary = blobResult.Value;
+
+            return Ok(projectDto); // Return the project with content (including dictionary)
         }
 
         // POST api/<ProjectController>
@@ -60,12 +114,11 @@ namespace Service_Project.Controllers
             var createContainerResult = await _blobRepository.CreateContainerAsync(project.id);
 
             if (createContainerResult.IsFailed)
-                {
-                    // Handle the error and return an appropriate response
-                    var errorMessages = string.Join(", ", createContainerResult.Errors.Select(e => e.Message));
-                    return BadRequest($"Error creating container: {errorMessages}");
-                }
-            
+            {
+                // Handle the error and return an appropriate response
+                var errorMessages = string.Join(", ", createContainerResult.Errors.Select(e => e.Message));
+                return BadRequest($"Error creating container: {errorMessages}");
+            }
             
             // Return success response
             var responseDto = _mapper.Map<ProjectResponseDto>(project);
