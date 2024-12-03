@@ -8,6 +8,6 @@ public interface IProjectRepository
     Task<IEnumerable<Project>> GetAllProjectsAsync();
     Task<Result<Project>> GetProjectByIdAsync(Guid id);
     Task<Result> AddProjectAsync(Project project);
-    Task UpdateProjectAsync(Project project);
+    Task<Result> UpdateProjectAsync(Project project);
     Task<Result> DeleteProjectAsync(Guid id);
 }

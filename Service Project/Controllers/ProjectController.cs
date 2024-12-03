@@ -127,9 +127,34 @@ namespace Service_Project.Controllers
 
         // PUT api/<ProjectController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProject(int id, [FromBody] Project project)
+        public async Task<IActionResult> UpdateProject(Guid id, [FromBody] ProjectRequestDto projectDto)
         {
-            throw new NotImplementedException();
+            // First, retrieve the project from the database
+            var projectResult = await _projectRepository.GetProjectByIdAsync(id);
+
+            if (projectResult.IsFailed)
+            {
+                // Return a 404 Not Found response if the project doesn't exist
+                return NotFound(projectResult.Errors.First().Message);
+            }
+
+            var project = projectResult.Value; // The existing project
+
+            // Map the updated project data from the request DTO to the project entity
+            _mapper.Map(projectDto, project);
+
+            // Save the updated project back to the database
+            var updateResult = await _projectRepository.UpdateProjectAsync(project);
+
+            if (updateResult.IsFailed)
+            {
+                // Return a BadRequest response if the update failed
+                return BadRequest(updateResult.Errors.First().Message);
+            }
+
+            // Return the updated project as a response
+            var updatedProjectDto = _mapper.Map<ProjectResponseDto>(project);
+            return Ok(updatedProjectDto);
         }
 
         // DELETE api/<ProjectController>/5

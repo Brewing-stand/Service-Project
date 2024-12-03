@@ -76,11 +76,31 @@ public class ProjectRepository : IProjectRepository
         }
     }
 
-    public Task UpdateProjectAsync(Project project)
+    public async Task<Result> UpdateProjectAsync(Project project)
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
+            // Find the existing project in the database
+            var existingProject = await _context.Projects.FindAsync(project.id);
 
+            if (existingProject == null)
+                return Result.Fail(new Error($"Project with id '{project.id}' not found."));
+
+            // Update the project properties with the new values
+            existingProject.name = project.name;
+            existingProject.description = project.description;
+            // Add other fields that you want to update
+
+            // Save the changes to the database
+            await _context.SaveChangesAsync();
+
+            return Result.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Result.Fail(new Error($"Error updating project: {ex.Message}"));
+        }
+    }
     public async Task<Result> DeleteProjectAsync(Guid id)
     {
         try
