@@ -134,9 +134,9 @@ namespace Service_Project.Controllers
                 return BadRequest($"Error creating container: {errorMessages}");
             }
             
-            // Return success response
+            // Return success response with status code 201 Created
             var responseDto = _mapper.Map<ProjectResponseDto>(project);
-            return Ok(responseDto);
+            return CreatedAtAction(nameof(GetProject), new { id = project.id }, responseDto);
         }
 
         // PUT api/<ProjectController>/5
@@ -202,9 +202,8 @@ namespace Service_Project.Controllers
                 // Return a BadRequest response if the container couldn't be deleted
                 return BadRequest(deleteContainerResult.Errors.Select(e => e.Message));
             }
-
-            // Return success response if both project and container were deleted successfully
-            return Ok($"Project and container with id '{id}' were deleted successfully.");
+            
+            return NoContent();
         }
     }
 }
