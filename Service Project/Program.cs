@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 // Set Database connection strings
 builder.Services.AddDbContext<ProjectDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("CosmosDbCluster")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresSQL_DB")));
 
 builder.Services.AddScoped<IBlobRepository>(provider => 
     new BlobRepository(builder.Configuration.GetConnectionString("AzureBlobStorage")));
