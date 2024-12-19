@@ -1,4 +1,8 @@
+using System.Configuration;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Service_Project.Context;
 using Service_Project.Repositories;
 
@@ -7,9 +11,27 @@ var corsPolicy = "CorsPolicy";
 
 // Add services to the container.
 
+// Authentication
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x =>
+{
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateLifetime = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JwtSettings:SecretKey").Value!))
+    };
+});
+
+builder.Services.AddAuthorization();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 // Set Database connection strings
@@ -45,6 +67,7 @@ app.UseHttpsRedirection();
 
 app.UseCors(corsPolicy);
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
