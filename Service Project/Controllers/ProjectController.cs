@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using AutoMapper;
+using FluentResults;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service_Project.DTOs;
@@ -28,8 +30,18 @@ namespace Service_Project.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Project>>> GetAllProjects()
         {
+            var userIdResult = GetUserId();
+
+            if (userIdResult.IsFailed)
+            {
+                // Return a BadRequest with the error messages if the Result failed
+                return BadRequest(userIdResult.Errors.Select(e => e.Message));
+            }
+
+            var userId = userIdResult.Value; // Get the valid Guid from the Result
+            
             // Removed userId and authentication check
-            var result = await _projectRepository.GetAllProjectsByUserIdAsync(""); // Adjusted method to fetch all projects
+            var result = await _projectRepository.GetAllProjectsByUserIdAsync(userId); // Adjusted method to fetch all projects
 
             if (result.IsFailed)
             {
@@ -45,7 +57,17 @@ namespace Service_Project.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Project>> GetProject(Guid id)
         {
-            var result = await _projectRepository.GetProjectByIdAsync(id);
+            var userIdResult = GetUserId();
+
+            if (userIdResult.IsFailed)
+            {
+                // Return a BadRequest with the error messages if the Result failed
+                return BadRequest(userIdResult.Errors.Select(e => e.Message));
+            }
+            
+            var userId = userIdResult.Value; // Get the valid Guid from the Result
+            
+            var result = await _projectRepository.GetProjectByIdAsync(id, userId);
 
             if (result.IsFailed)
             {
@@ -60,9 +82,19 @@ namespace Service_Project.Controllers
         
         // GET api/<ProjectController>/5/content
         [HttpGet("{id}/content")]
-        public async Task<ActionResult> GetProjectContent(Guid id)
+        public async Task<ActionResult<ProjectResponseDto>> GetProjectContent(Guid id)
         {
-            var projectResult = await _projectRepository.GetProjectByIdAsync(id);
+            var userIdResult = GetUserId();
+
+            if (userIdResult.IsFailed)
+            {
+                // Return a BadRequest with the error messages if the Result failed
+                return BadRequest(userIdResult.Errors.Select(e => e.Message));
+            }
+            
+            var userId = userIdResult.Value; // Get the valid Guid from the Result
+            
+            var projectResult = await _projectRepository.GetProjectByIdAsync(id, userId);
 
             if (projectResult.IsFailed)
             {
@@ -96,8 +128,18 @@ namespace Service_Project.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProject([FromBody] ProjectRequestDto projectDto)
         {
+            var userIdResult = GetUserId();
+
+            if (userIdResult.IsFailed)
+            {
+                // Return a BadRequest with the error messages if the Result failed
+                return BadRequest(userIdResult.Errors.Select(e => e.Message));
+            }
+            
+            var userId = userIdResult.Value; // Get the valid Guid from the Result
+            
             var project = _mapper.Map<Project>(projectDto);
-            var result = await _projectRepository.AddProjectAsync(project);
+            var result = await _projectRepository.AddProjectAsync(project, userId);
 
             if (result.IsFailed)
             {
@@ -120,7 +162,17 @@ namespace Service_Project.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProject(Guid id, [FromBody] ProjectRequestDto projectDto)
         {
-            var projectResult = await _projectRepository.GetProjectByIdAsync(id);
+            var userIdResult = GetUserId();
+
+            if (userIdResult.IsFailed)
+            {
+                // Return a BadRequest with the error messages if the Result failed
+                return BadRequest(userIdResult.Errors.Select(e => e.Message));
+            }
+            
+            var userId = userIdResult.Value; // Get the valid Guid from the Result
+            
+            var projectResult = await _projectRepository.GetProjectByIdAsync(id, userId);
 
             if (projectResult.IsFailed)
             {
@@ -130,7 +182,7 @@ namespace Service_Project.Controllers
             var project = projectResult.Value;
             _mapper.Map(projectDto, project);
 
-            var updateResult = await _projectRepository.UpdateProjectAsync(project);
+            var updateResult = await _projectRepository.UpdateProjectAsync(project, userId);
 
             if (updateResult.IsFailed)
             {
@@ -145,14 +197,25 @@ namespace Service_Project.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(Guid id)
         {
-            var projectResult = await _projectRepository.GetProjectByIdAsync(id);
+            var userIdResult = GetUserId();
+
+            if (userIdResult.IsFailed)
+            {
+                // Return a BadRequest with the error messages if the Result failed
+                return BadRequest(userIdResult.Errors.Select(e => e.Message));
+            }
+            
+            var userId = userIdResult.Value; // Get the valid Guid from the Result
+            
+            
+            var projectResult = await _projectRepository.GetProjectByIdAsync(id, userId);
 
             if (projectResult.IsFailed)
             {
                 return NotFound(projectResult.Errors.Select(e => e.Message));
             }
 
-            var result = await _projectRepository.DeleteProjectAsync(id);
+            var result = await _projectRepository.DeleteProjectAsync(id, userId);
 
             if (result.IsFailed)
             {
@@ -167,6 +230,23 @@ namespace Service_Project.Controllers
             }
 
             return NoContent();
+        }
+        
+        private Result<Guid> GetUserId()
+        {
+            var idString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(idString))
+            {
+                return Result.Fail<Guid>("User ID is missing or invalid.");
+            }
+
+            if (!Guid.TryParse(idString, out Guid userId))
+            {
+                return Result.Fail<Guid>("Invalid User ID format.");
+            }
+
+            return Result.Ok(userId); // Return the successfully parsed Guid
         }
     }
 }
