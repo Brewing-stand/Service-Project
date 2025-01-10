@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 namespace UnitTests
 {
     public class Calculator
@@ -25,7 +23,7 @@ namespace UnitTests
             var result = _calculator.Add(2, 3);
 
             // Assert: Verify the expected outcome
-            Assert.AreEqual(5, result, "The addition result should be correct.");
+            Assert.That(result, Is.EqualTo(5));
         }
     }
 }

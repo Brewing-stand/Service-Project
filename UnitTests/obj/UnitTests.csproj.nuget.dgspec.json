@@ -4,21 +4,21 @@
     "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj": {
+    "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
-        "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj",
+        "projectName": "Service Project",
+        "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj",
         "packagesPath": "C:\\Users\\bramv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\obj\\",
+        "outputPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bramv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -26,8 +26,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -44,28 +44,68 @@
         "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[17.12.0, )"
+              "version": "[12.0.1, )"
             },
-            "NUnit": {
+            "Azure.Storage.Blobs": {
               "target": "Package",
-              "version": "[3.14.0, )"
+              "version": "[12.23.0, )"
             },
-            "NUnit.Analyzers": {
+            "FluentResults": {
               "target": "Package",
-              "version": "[3.9.0, )"
+              "version": "[3.16.0, )"
             },
-            "NUnit3TestAdapter": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[4.5.0, )"
+              "version": "[9.0.0, )"
             },
-            "coverlet.collector": {
+            "Microsoft.Build": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[17.12.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
@@ -79,20 +119,113 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
             },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
             }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
+        "projectName": "UnitTests",
+        "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\bramv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\UnitTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\bramv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj": {
+                "projectPath": "C:\\Users\\bramv\\OneDrive\\Documenten\\fontys\\Semester 6 (advanced software)\\Personal code\\back-end\\Service-Project\\Service Project\\Service Project.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[8.0.0-rc.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.12.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.3.2, )"
+            },
+            "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[5.0.0-beta.5, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
           ],
+          "assetTargetFallback": true,
+          "warn": true,
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
