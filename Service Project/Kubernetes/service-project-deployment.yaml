@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: service-project-deployment
+  namespace: brewingstand
 spec:
   replicas: 1
   selector:
@@ -15,6 +16,7 @@ spec:
       containers:
         - name: service-project
           image: ghcr.io/brewing-stand/service-user:master
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           resources:

@@ -2,10 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: service-project-service
+  namespace: brewingstand
 spec:
   selector:
-    app: project
+    app: service-project
   ports:
     - port: 8080
-      targetPort: 8082
+      targetPort: 8080
   type: ClusterIP  
