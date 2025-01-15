@@ -16,7 +16,7 @@ var corsPolicy = "CorsPolicy";
 // Load configuration from alternate appsettings file in production
 var environment = builder.Environment.EnvironmentName; // e.g., "Development", "Production"
 var configFileName = environment == "Production"
-    ? "/mnt/secretprovider/appsettings-program-service" // Use secrets path in production
+    ? "/mnt/secretprovider/appsettings-project-service" // Use secrets path in production
     : "appsettings.json";
 
 builder.Configuration
