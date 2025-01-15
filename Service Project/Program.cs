@@ -13,6 +13,17 @@ using Swashbuckle.AspNetCore.Filters;
 var builder = WebApplication.CreateBuilder(args);
 var corsPolicy = "CorsPolicy";
 
+// Load configuration from alternate appsettings file in production
+var environment = builder.Environment.EnvironmentName; // e.g., "Development", "Production"
+var configFileName = environment == "Production"
+    ? "/mnt/secretprovider/appsettings-program-service" // Use secrets path in production
+    : "appsettings.json";
+
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile(configFileName, optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
