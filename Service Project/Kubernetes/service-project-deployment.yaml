@@ -26,3 +26,14 @@ spec:
             limits:
               memory: "1Gi"
               cpu: "500m"
+          volumeMounts:
+          - name: secrets-store
+            mountPath: "/mnt/secretprovider"
+            readOnly: true
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "service-project-secretsprovider"
