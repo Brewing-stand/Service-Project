@@ -31,12 +31,8 @@ namespace Service_Project.Controllers
         public async Task<ActionResult<IEnumerable<Project>>> GetAllProjects()
         {
             var userIdResult = GetUserId();
-
             if (userIdResult.IsFailed)
-            {
-                // Return a BadRequest with the error messages if the Result failed
-                return BadRequest(userIdResult.Errors.Select(e => e.Message));
-            }
+                return Unauthorized(userIdResult.Errors);
 
             var userId = userIdResult.Value; // Get the valid Guid from the Result
             
@@ -58,12 +54,8 @@ namespace Service_Project.Controllers
         public async Task<ActionResult<Project>> GetProject(Guid id)
         {
             var userIdResult = GetUserId();
-
             if (userIdResult.IsFailed)
-            {
-                // Return a BadRequest with the error messages if the Result failed
-                return BadRequest(userIdResult.Errors.Select(e => e.Message));
-            }
+                return Unauthorized(userIdResult.Errors);
             
             var userId = userIdResult.Value; // Get the valid Guid from the Result
             
@@ -85,12 +77,8 @@ namespace Service_Project.Controllers
         public async Task<ActionResult<ProjectResponseDto>> GetProjectContent(Guid id)
         {
             var userIdResult = GetUserId();
-
             if (userIdResult.IsFailed)
-            {
-                // Return a BadRequest with the error messages if the Result failed
-                return BadRequest(userIdResult.Errors.Select(e => e.Message));
-            }
+                return Unauthorized(userIdResult.Errors);
             
             var userId = userIdResult.Value; // Get the valid Guid from the Result
             
@@ -129,12 +117,8 @@ namespace Service_Project.Controllers
         public async Task<IActionResult> CreateProject([FromBody] ProjectRequestDto projectDto)
         {
             var userIdResult = GetUserId();
-
             if (userIdResult.IsFailed)
-            {
-                // Return a BadRequest with the error messages if the Result failed
-                return BadRequest(userIdResult.Errors.Select(e => e.Message));
-            }
+                return Unauthorized(userIdResult.Errors);
             
             var userId = userIdResult.Value; // Get the valid Guid from the Result
             
@@ -163,12 +147,8 @@ namespace Service_Project.Controllers
         public async Task<IActionResult> UpdateProject(Guid id, [FromBody] ProjectRequestDto projectDto)
         {
             var userIdResult = GetUserId();
-
             if (userIdResult.IsFailed)
-            {
-                // Return a BadRequest with the error messages if the Result failed
-                return BadRequest(userIdResult.Errors.Select(e => e.Message));
-            }
+                return Unauthorized(userIdResult.Errors);
             
             var userId = userIdResult.Value; // Get the valid Guid from the Result
             
@@ -198,12 +178,8 @@ namespace Service_Project.Controllers
         public async Task<IActionResult> DeleteProject(Guid id)
         {
             var userIdResult = GetUserId();
-
             if (userIdResult.IsFailed)
-            {
-                // Return a BadRequest with the error messages if the Result failed
-                return BadRequest(userIdResult.Errors.Select(e => e.Message));
-            }
+                return Unauthorized(userIdResult.Errors);
             
             var userId = userIdResult.Value; // Get the valid Guid from the Result
             
@@ -232,21 +208,10 @@ namespace Service_Project.Controllers
             return NoContent();
         }
         
-        private Result<Guid> GetUserId()
+        private Result<Guid>? GetUserId()
         {
-            var idString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (string.IsNullOrEmpty(idString))
-            {
-                return Result.Fail<Guid>("User ID is missing or invalid.");
-            }
-
-            if (!Guid.TryParse(idString, out Guid userId))
-            {
-                return Result.Fail<Guid>("Invalid User ID format.");
-            }
-
-            return Result.Ok(userId); // Return the successfully parsed Guid
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return Guid.TryParse(idClaim, out var userId) ? userId : null;
         }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Service_Project.Context;
+using Service_Project.Middleware;
 using Service_Project.Repositories;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -89,6 +90,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors(corsPolicy);
+
+app.UseMiddleware<JwtCookieMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

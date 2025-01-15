@@ -25,7 +25,7 @@ public class ProjectRepository : IProjectRepository
         {
             // Query the projects by userId
             var projects = await _context.Projects
-                .Where(p => p.id == userId) // Assuming your Project entity has a UserId field
+                .Where(p => p.ownerId == userId) // Assuming your Project entity has a UserId field
                 .ToListAsync();
 
             if (projects == null || projects.Count == 0)
@@ -50,7 +50,7 @@ public class ProjectRepository : IProjectRepository
         {
             // Attempt to find the project by ID and userId
             var project = await _context.Projects
-                .FirstOrDefaultAsync(p => p.id == id && p.id == userId); // Ensure the project belongs to the user
+                .FirstOrDefaultAsync(p => p.id == id && p.ownerId == userId); // Ensure the project belongs to the user
 
             if (project == null)
             {
@@ -112,7 +112,7 @@ public class ProjectRepository : IProjectRepository
         {
             // Ensure the project belongs to the user
             var existingProject = await _context.Projects
-                .FirstOrDefaultAsync(p => p.id == project.id && p.id == userId);
+                .FirstOrDefaultAsync(p => p.id == project.id && p.ownerId == userId);
 
             if (existingProject == null)
             {
@@ -141,7 +141,7 @@ public class ProjectRepository : IProjectRepository
         {
             // Ensure the project belongs to the user
             var project = await _context.Projects
-                .FirstOrDefaultAsync(p => p.id == id && p.id == userId);
+                .FirstOrDefaultAsync(p => p.id == id && p.ownerId == userId);
 
             if (project == null)
             {
