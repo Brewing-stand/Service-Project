@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: service-project
-          image: ghcr.io/brewing-stand/service-user:master
+          image: ghcr.io/brewing-stand/service-project:master
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
